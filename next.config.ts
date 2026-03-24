@@ -1,11 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Dette fortæller Vercel at den skal lade AI-pakken være i fred
+  serverExternalPackages: ["@google/generative-ai"],
+  
+  // Vi fjerner de gamle fejlbehæftede indstillinger fra tidligere
   eslint: {
-    // This forces Vercel to deploy even if there are minor code warnings
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // This prevents strict type checks from crashing the Vercel build
     ignoreBuildErrors: true,
   }
 };
