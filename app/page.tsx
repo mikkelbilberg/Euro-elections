@@ -2,7 +2,10 @@
 
 import { useState, useMemo } from 'react';
 import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
-import ParliamentChart, { Party } from '../components/ParliamentChart';
+import dynamic from 'next/dynamic';
+import type { Party } from '../components/ParliamentChart';
+
+const ParliamentChart = dynamic(() => import('../components/ParliamentChart'), { ssr: false });
 import { europeanData } from '../utils/countryData';
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json";
